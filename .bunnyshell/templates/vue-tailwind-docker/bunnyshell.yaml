@@ -7,7 +7,7 @@ components:
     -
         kind: Application
         name: vue-hello-world
-        gitRepo: 'https://github.com/bunnyshell/template-vue-tailwind-static-site.git'
+        gitRepo: 'https://github.com/bunnyshell/template-vue-tailwind.git'
         gitBranch: main
         gitApplicationPath: /
         dockerCompose:
