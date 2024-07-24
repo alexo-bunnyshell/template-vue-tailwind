@@ -7,7 +7,7 @@ components:
     -
         kind: StaticApplication
         name: vue-hello-world
-        gitRepo: 'https://github.com/bunnyshell/template-vue-tailwind.git'
+        gitRepo: 'https://github.com/alexo-bunnyshell/template-vue-tailwind.git'
         gitBranch: main
         gitApplicationPath: /
         buildNodeVersion: lts
