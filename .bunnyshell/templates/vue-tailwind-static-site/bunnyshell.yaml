@@ -1,0 +1,41 @@
+kind: Environment
+name: vue-tailwind-static-site
+type: primary
+environmentVariables:
+    VITE_APP_NAME: '{{env.unique}}'
+components:
+    -
+        kind: StaticApplication
+        name: vue-hello-world
+        gitRepo: 'https://github.com/bunnyshell/template-vue-tailwind-static-site.git'
+        gitBranch: main
+        gitApplicationPath: /
+        buildNodeVersion: lts
+        buildCommand: 'vite build'
+        buildOutputDir: dist
+        buildArguments:
+            VITE_APP_NAME: '{{env.vars.VITE_APP_NAME}}'
+        hosts:
+            -
+                hostname: 'vue-{{ env.base_domain }}'
+                path: /
+                servicePort: 8080
+    -
+        kind: Application
+        name: yaml-docker
+        gitRepo: 'https://github.com/alexo-bunnyshell/yaml-generator.git'
+        gitBranch: main
+        gitApplicationPath: /
+        dockerCompose:
+            build:
+                context: .
+                dockerfile: Dockerfile
+                args:
+                    VITE_VERSION: '{{env.vars.VITE_VERSION}}'
+            ports:
+                - '3000:3000'
+        hosts:
+            -
+                hostname: 'yaml-docker-{{ env.base_domain }}'
+                path: /
+                servicePort: 3000

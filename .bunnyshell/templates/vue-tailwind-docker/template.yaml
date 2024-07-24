@@ -1,0 +1,13 @@
+name: Vue + Tailwind CSS + Node
+description: A static site built with Vite, Vue3 and Tailwind CSS, served by a Node.js server
+tags: [ vue, tailwind, vite, nodejs]
+icons: [ vue, tailwind, vite, nodejs]
+stack:
+  packages:
+    - name: vue
+      version: '3.4.29'
+    - name: tailwindcss
+      version: '3.4.6'
+    - name: node
+      version: '20.*'
+discoverable: true

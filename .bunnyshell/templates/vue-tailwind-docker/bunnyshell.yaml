@@ -1,0 +1,25 @@
+kind: Environment
+name: vue-tailwind-docker
+type: primary
+environmentVariables:
+    VITE_APP_NAME: '{{env.unique}}'
+components:
+    -
+        kind: Application
+        name: vue-hello-world
+        gitRepo: 'https://github.com/bunnyshell/template-vue-tailwind-static-site.git'
+        gitBranch: main
+        gitApplicationPath: /
+        dockerCompose:
+            build:
+                context: .
+                dockerfile: Dockerfile
+                args:
+                    VITE_APP_NAME: '{{env.vars.VITE_APP_NAME}}'
+            ports:
+                - '3000:3000'
+        hosts:
+            -
+                hostname: 'vue-{{ env.base_domain }}'
+                path: /
+                servicePort: 3000
