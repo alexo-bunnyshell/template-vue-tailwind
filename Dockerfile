@@ -4,11 +4,9 @@ ARG VITE_APP_NAME
 
 WORKDIR /app
 
-COPY package.json .
+COPY package.json package-lock.json* ./
 
 RUN npm install
-
-RUN npm i -g serve
 
 COPY . .
 

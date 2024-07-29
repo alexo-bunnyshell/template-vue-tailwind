@@ -2,6 +2,7 @@ name: Vue + Tailwind CSS static site
 description: A static site built with Vite, Vue3 and Tailwind CSS
 tags: [ vue, tailwind, vite]
 icons: [ vue, tailwind, vite]
+categories: [ framework ]
 stack:
   packages:
     - name: vue
